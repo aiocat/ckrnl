@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2022 aiocat
- * 
+ *
  * This software is released under the MIT License.
  * https://opensource.org/licenses/MIT
  */
@@ -17,6 +17,7 @@ typedef enum InjectionStatus
     Success,
     LoadImageFail,
     NoRobloxProcess,
+    KrnlDllNotFound
 } InjectionStatus;
 
 typedef InjectionStatus (*INJECT_FUNCTION)(const char *);
