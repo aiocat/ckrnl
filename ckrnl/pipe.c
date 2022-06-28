@@ -1,14 +1,29 @@
-#include <winbase.h>
-#include <stdint.h>
-#include <string.h>
-
-#define PIPE_NAME "krnlpipe"
-#define PIPE_PATH "\\\\.\\pipe\\krnlpipe"
+#include "./headers/pipe.h"
 
 uint8_t PipeActive()
 {
-    if (WaitNamedPipe(PIPE_PATH, 0) == 0)
+    FILE *pipe = fopen(PIPE_PATH, "r");
+    if (!pipe)
+    {
         return 0;
+    }
     else
+    {
+        fclose(pipe);
         return 1;
+    }
+}
+
+uint8_t SendToPipe(char *input)
+{
+    FILE *pipe = fopen(PIPE_PATH, "w");
+    if (!pipe)
+    {
+        return 0;
+    }
+
+    fputs(input, pipe);
+    fclose(pipe);
+
+    return 1;
 }

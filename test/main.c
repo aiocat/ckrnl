@@ -10,4 +10,6 @@ int main(void)
     InjectionStatus result = Inject();
 
     printf("Got: %d\n", result);
+    printf("Got: %d\n", SendToPipe("print(1 + 5)"));
+    printf("Got: %d\n", SendToPipe("print('çüngüs')"));
 }

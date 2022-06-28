@@ -1,15 +1,4 @@
-#include <windows.h>
-#include <stdlib.h>
-
-typedef enum InjectionStatus
-{
-    Failure = -1,
-    Success,
-    LoadImageFail,
-    NoRobloxProcess,
-} InjectionStatus;
-
-typedef InjectionStatus (*INJECT_FUNCTION)(const char *);
+#include "./headers/inject.h"
 
 InjectionStatus Inject(void)
 {
