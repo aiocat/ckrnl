@@ -17,6 +17,8 @@ I re-wrote the simple API utility in C to make it easier to use for every platfo
 You need to add **injector.dll** and **krnl.dll** to the current path, otherwise it won't work.
 
 ```c
+// you must compile for 32-bit arch
+
 #include "../ckrnl/ckrnl.c"
 #include <stdio.h>
 
@@ -33,6 +35,25 @@ int main(void)
     // Run a command
     Execute("print(1 + 5)");
 }
+```
+Or, Python???!? also you need to use a 32-bit release of Python.
+```py
+# this code can be interpreted with python 3.6+ 32-bit
+
+from ctypes import *
+
+# load ckrnl
+ckrnl = cdll.LoadLibrary(".\\libckrnl.dll")
+
+# inject krnl
+ckrnl.Inject()
+
+# waiting the injection
+while not ckrnl.PipeActive():
+    pass
+
+# execute some lua
+ckrnl.SendToPipe(b"print(5 + 5)")
 ```
 
 ## License
