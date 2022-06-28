@@ -1,6 +1,6 @@
 #include "./headers/pipe.h"
 
-uint8_t PipeActive()
+uint8_t PipeActive(void)
 {
     FILE *pipe = fopen(PIPE_PATH, "r");
     if (!pipe)
