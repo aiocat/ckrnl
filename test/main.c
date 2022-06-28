@@ -1,5 +1,4 @@
-#include "../ckrnl/inject.c"
-#include "../ckrnl/pipe.c"
+#include "../ckrnl/ckrnl.c"
 #include <stdio.h>
 
 int main(void)
@@ -12,4 +11,6 @@ int main(void)
     printf("Got: %d\n", result);
     printf("Got: %d\n", SendToPipe("print(1 + 5)"));
     printf("Got: %d\n", SendToPipe("print('çüngüs')"));
+    
+    SetFrameRate(1337);
 }
