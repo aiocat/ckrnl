@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2022 aiocat
- * 
+ *
  * This software is released under the MIT License.
  * https://opensource.org/licenses/MIT
  */
@@ -14,6 +14,6 @@
 #define PIPE_PATH "\\\\.\\pipe\\krnlpipe"
 
 uint8_t PipeActive(void);
-uint8_t SendToPipe(char *input);
+uint8_t SendToPipe(char *);
 
 #endif

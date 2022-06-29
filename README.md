@@ -1,6 +1,6 @@
 # CKrnl
 
-Krnl API re-written in pure C99.
+Krnl API re-written in C99.
 
 ## Note
 
@@ -36,10 +36,10 @@ int main(void)
     Execute("print(1 + 5)");
 }
 ```
-Or, Python???!? also you need to use a 32-bit release of Python.
-```py
-# this code can be interpreted with python 3.6+ 32-bit
 
+Or, use the dynamic library. You can download it [here](https://github.com/aiocat/ckrnl/releases/latest).
+
+```py
 from ctypes import *
 
 # load ckrnl

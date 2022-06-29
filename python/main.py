@@ -1,10 +1,5 @@
-# Copyright (c) 2022 aiocat
-# 
-# This software is released under the MIT License.
-# https://opensource.org/licenses/MIT
-
-# this code can be interpreted with python 3.6+ 32-bit
 from ctypes import *
+import time
 
 # load ckrnl
 ckrnl = cdll.LoadLibrary(".\\libckrnl.dll")
@@ -17,4 +12,5 @@ while not ckrnl.PipeActive():
     pass
 
 # execute some lua
-ckrnl.SendToPipe(b"print(5 + 5)")
+ckrnl.SendToPipe(b"print(\"Hello from Python!\")")
+ckrnl.SendToPipe(b"print(\"This is an example dynamic library usage in Python.\")")

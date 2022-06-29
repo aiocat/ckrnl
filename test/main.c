@@ -1,10 +1,3 @@
-/**
- * Copyright (c) 2022 aiocat
- * 
- * This software is released under the MIT License.
- * https://opensource.org/licenses/MIT
- */
-
 #include "../ckrnl/ckrnl.c"
 #include <stdio.h>
 
@@ -20,4 +13,9 @@ int main(void)
 
     // Run a command
     Execute("print(1 + 5)");
+
+    SetWalkSpeed(100);
+    SetJumpPower(100);
+
+    Execute("print(1 + 7)");
 }
