@@ -27,10 +27,12 @@ uint8_t SendToPipe(char *input)
         OPEN_EXISTING,
         FILE_ATTRIBUTE_NORMAL,
         NULL);
+    if (!createdInstance)
+        return 0;
 
     DWORD dwBytesWrite;
-    WriteFile(createdInstance, input, (strlen(input) + 1) * sizeof(char), &dwBytesWrite, NULL);
+    uint8_t result = WriteFile(createdInstance, input, (strlen(input) + 1) * sizeof(char), &dwBytesWrite, NULL);
     CloseHandle(createdInstance);
 
-    return 1;
+    return result;
 }

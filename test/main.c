@@ -3,6 +3,8 @@
 
 int main(void)
 {
+    printf("%d\n", Execute("print(1 + 5)"));
+
     // Injection
     puts("Injecting...");
     InjectionStatus result = Inject();
@@ -12,5 +14,5 @@ int main(void)
     puts("Injected!");
 
     // Run a command
-    Execute("print(1 + 5)");
+    printf("%d\n", Execute("print(1 + 5)"));
 }
