@@ -19,12 +19,18 @@ uint8_t PipeActive(void)
 
 uint8_t SendToPipe(char *input)
 {
-    FILE *pipe = fopen(PIPE_PATH, "w");
-    if (!pipe)
-        return 0;
+    HANDLE createdInstance = CreateFile(
+        PIPE_PATH,
+        GENERIC_READ | GENERIC_WRITE,
+        FILE_SHARE_READ | FILE_SHARE_WRITE,
+        NULL,
+        OPEN_EXISTING,
+        FILE_ATTRIBUTE_NORMAL,
+        NULL);
 
-    fputs(input, pipe);
-    fclose(pipe);
+    DWORD dwBytesWrite;
+    WriteFile(createdInstance, input, (strlen(input) + 1) * sizeof(char), &dwBytesWrite, NULL);
+    CloseHandle(createdInstance);
 
     return 1;
 }
